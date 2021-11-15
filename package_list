@@ -1,2 +1,4 @@
-gtts
-playsound
+apt 
+  mpg123
+pip
+  gtts
