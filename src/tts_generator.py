@@ -7,17 +7,20 @@ def get_info(info_path: str) -> dict:
     return info_dict
 
 
-def save_tts(info_dict: str, save_folder: str) -> None:
+def save_tts(info_dict: str, save_folder_path: str) -> None:
     for key, val in info_dict.items():
         tts = gTTS(text=val, lang='ko')
-        path = save_folder + '/' + key + '.mp3'
+        path = save_folder_path + '/' + key + '.mp3'
         tts.save(path)
         print('saved', path)
+
+
+def generate_and_save_tts(info_txt_path: str, save_folder_path: str):
+    info_dict = get_info(info_txt_path)
+    save_tts(info_dict, save_folder_path)
 
 
 if __name__ == '__main__':
     txt_path = 'information.txt'
     save_folder = 'sounds'
-
-    info_dict = get_info(txt_path)
-    save_tts(info_dict, save_folder)
+    generate_and_save_tts(txt_path, save_folder)
