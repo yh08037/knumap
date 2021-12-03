@@ -10,11 +10,14 @@ class SoundPlayer:
 
     def loop(self) -> None:
         self.print_available_building_number()
-        while val := input():
-            if val == 'a':
+        while True:
+            val = input()
+            if val == '':
                 self.stop_sound()
-            else:
+            elif val in self.path_dict:
                 self.play_sound(val)
+            else:
+                self.play_sound(None)
 
     def play_sound(self, input_val: str):
         if self.process is not None:
@@ -36,9 +39,10 @@ class SoundPlayer:
         os.system('pkill mpg123')
 
     def get_file_path(self, input_val: str) -> str:
-        res = self.path_dict.get(input_val)
-        if res is None:
+        if input_val is None:
             res = self.path_dict.get('000')
+        else:
+            res = self.path_dict.get(input_val)
         return res
 
     def get_path_dict(self, folder_path: str) -> dict:

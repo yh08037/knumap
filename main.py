@@ -1,4 +1,3 @@
-from src.tts_generator import generate_and_save_tts
 from src.sound_player import SoundPlayer
 
 
