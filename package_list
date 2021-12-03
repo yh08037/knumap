@@ -1,5 +1,6 @@
 apt 
   mpg123
 pip
+  pynput
   google-cloud-texttospeech
   gtts

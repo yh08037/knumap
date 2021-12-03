@@ -1,4 +1,5 @@
-from src.sound_player import SoundPlayer
+# from src.sound_player import SoundPlayer
+from src.sound_player_pygame import SoundPlayer
 
 
 if __name__ == '__main__':
